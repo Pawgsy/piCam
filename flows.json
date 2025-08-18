@@ -1,0 +1,195 @@
+[
+    {
+        "id": "711ec21d46a46304",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "53b26fd496fa8d93",
+        "type": "i2c scan",
+        "z": "711ec21d46a46304",
+        "name": "",
+        "busno": "1",
+        "x": 400,
+        "y": 1160,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f35612b4799d1ecd",
+        "type": "i2c in",
+        "z": "711ec21d46a46304",
+        "name": "",
+        "busno": "1",
+        "address": "",
+        "command": "",
+        "count": "1",
+        "x": 610,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "367f239ed3af9b78",
+        "type": "i2c out",
+        "z": "711ec21d46a46304",
+        "name": "",
+        "busno": "1",
+        "address": "",
+        "command": "",
+        "payload": "payload",
+        "payloadType": "msg",
+        "count": "1",
+        "x": 670,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "08a6bc0bd3421103",
+        "type": "camerapi-takephoto",
+        "z": "711ec21d46a46304",
+        "filemode": "0",
+        "filename": "",
+        "filedefpath": "1",
+        "filepath": "",
+        "fileformat": "jpeg",
+        "resolution": "1",
+        "rotation": "0",
+        "fliph": "0",
+        "flipv": "0",
+        "brightness": "50",
+        "contrast": "0",
+        "sharpness": "0",
+        "quality": "80",
+        "imageeffect": "none",
+        "exposuremode": "auto",
+        "iso": "0",
+        "agcwait": "1.0",
+        "led": "1",
+        "awb": "auto",
+        "name": "",
+        "x": 440,
+        "y": 780,
+        "wires": [
+            [
+                "bb353ca029384241"
+            ]
+        ]
+    },
+    {
+        "id": "8345e7fa833a174b",
+        "type": "buffer-parser",
+        "z": "711ec21d46a46304",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "int16be",
+                "name": "item1",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 790,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1d3f5798031f8edb",
+        "type": "udp out",
+        "z": "711ec21d46a46304",
+        "name": "",
+        "addr": "",
+        "iface": "",
+        "port": "",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 1030,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "bb353ca029384241",
+        "type": "image",
+        "z": "711ec21d46a46304",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "thumbnail": false,
+        "active": true,
+        "pass": true,
+        "outputs": 1,
+        "x": 700,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "35b4515dd7688b21",
+        "type": "trigger",
+        "z": "711ec21d46a46304",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "0",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 240,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a54c072748f259e",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-i2c": "0.9.0",
+            "node-red-contrib-camerapi": "0.0.39",
+            "node-red-contrib-buffer-parser": "3.2.2",
+            "node-red-contrib-image-output": "0.6.4"
+        }
+    }
+]
