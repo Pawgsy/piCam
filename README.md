@@ -12,3 +12,7 @@ Prequisites:
 
 Toughts:
 
+- für den Livestream des Peak Projekts der DAA
+- geplant 3 Kameras
+- Totale, auf Speaker & Mobil
+- Stream direkt an OBS
